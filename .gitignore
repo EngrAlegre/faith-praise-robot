@@ -1,0 +1,5 @@
+*secrets.h
+firmware/bin/
+*.bin
+*.elf
+*.map
