@@ -1,0 +1,633 @@
+{
+ "title": "C++ Lab",
+ "subtitle": "A hands-on C++ course: read, predict, run, test.",
+ "standard": "C++20",
+ "levels": [
+  {
+   "id": "beginner",
+   "name": "Beginner",
+   "blurb": "From your first line of code to your first small program.",
+   "lessons": [
+    "b01",
+    "b02",
+    "b03",
+    "b04",
+    "b05",
+    "b06",
+    "b07",
+    "b08",
+    "b09",
+    "b10",
+    "b11",
+    "b12",
+    "b13",
+    "b14"
+   ]
+  },
+  {
+   "id": "intermediate",
+   "name": "Intermediate",
+   "blurb": "Collections, your own types, and programs that span files.",
+   "lessons": [
+    "i01",
+    "i02",
+    "i03",
+    "i04",
+    "i05",
+    "i06",
+    "i07",
+    "i08",
+    "i09",
+    "i10",
+    "i11",
+    "i12"
+   ]
+  },
+  {
+   "id": "advanced",
+   "name": "Advanced",
+   "blurb": "Ownership, errors, templates and the tools real projects need.",
+   "lessons": [
+    "a01",
+    "a02",
+    "a03",
+    "a04",
+    "a05",
+    "a06",
+    "a07",
+    "a08",
+    "a09",
+    "a10",
+    "a11",
+    "a12"
+   ]
+  },
+  {
+   "id": "expert",
+   "name": "Expert Track",
+   "blurb": "C++20 features, threads, measurement and a tested capstone.",
+   "lessons": [
+    "e01",
+    "e02",
+    "e03",
+    "e04",
+    "e05",
+    "e06",
+    "e07",
+    "e08"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "b01",
+   "level": "beginner",
+   "title": "Your first program",
+   "minutes": 10,
+   "tags": [
+    "main",
+    "output",
+    "compiler"
+   ],
+   "goal": "Write, compile and run the smallest complete C++ program."
+  },
+  {
+   "id": "b02",
+   "level": "beginner",
+   "title": "Printing several things",
+   "minutes": 10,
+   "tags": [
+    "output",
+    "endl"
+   ],
+   "goal": "Combine text and numbers in one print, and choose between \\n and endl."
+  },
+  {
+   "id": "b03",
+   "level": "beginner",
+   "title": "Variables hold values",
+   "minutes": 12,
+   "tags": [
+    "variables",
+    "assignment"
+   ],
+   "goal": "Store a value in a named box and change it later."
+  },
+  {
+   "id": "b04",
+   "level": "beginner",
+   "title": "Types: int, double, char, bool",
+   "minutes": 12,
+   "tags": [
+    "types",
+    "numbers",
+    "bool"
+   ],
+   "goal": "Pick the right type for each kind of value and know what each one prints."
+  },
+  {
+   "id": "b05",
+   "level": "beginner",
+   "title": "Reading what the user types",
+   "minutes": 12,
+   "tags": [
+    "input",
+    "cin",
+    "getline"
+   ],
+   "goal": "Ask a question, read the answer, and use it."
+  },
+  {
+   "id": "b06",
+   "level": "beginner",
+   "title": "Arithmetic and the integer trap",
+   "minutes": 12,
+   "tags": [
+    "operators",
+    "division",
+    "modulo"
+   ],
+   "goal": "Calculate with + - * / % and avoid the integer division surprise."
+  },
+  {
+   "id": "b07",
+   "level": "beginner",
+   "title": "Making decisions with if",
+   "minutes": 12,
+   "tags": [
+    "if",
+    "comparison",
+    "boolean"
+   ],
+   "goal": "Run different code depending on a condition."
+  },
+  {
+   "id": "b08",
+   "level": "beginner",
+   "title": "Several choices and combining conditions",
+   "minutes": 13,
+   "tags": [
+    "else if",
+    "and",
+    "or"
+   ],
+   "goal": "Choose between many outcomes and join conditions with && and ||."
+  },
+  {
+   "id": "b09",
+   "level": "beginner",
+   "title": "Repeating with while",
+   "minutes": 13,
+   "tags": [
+    "while",
+    "loops"
+   ],
+   "goal": "Repeat work until a condition becomes false."
+  },
+  {
+   "id": "b10",
+   "level": "beginner",
+   "title": "Counting with for",
+   "minutes": 13,
+   "tags": [
+    "for",
+    "loops",
+    "accumulator"
+   ],
+   "goal": "Use a for loop for a known number of repeats."
+  },
+  {
+   "id": "b11",
+   "level": "beginner",
+   "title": "Functions: giving code a name",
+   "minutes": 13,
+   "tags": [
+    "functions",
+    "void"
+   ],
+   "goal": "Move repeated code into a function and call it by name."
+  },
+  {
+   "id": "b12",
+   "level": "beginner",
+   "title": "Functions that return values",
+   "minutes": 14,
+   "tags": [
+    "functions",
+    "return",
+    "parameters"
+   ],
+   "goal": "Pass information in and get an answer back."
+  },
+  {
+   "id": "b13",
+   "level": "beginner",
+   "title": "Working with text",
+   "minutes": 14,
+   "tags": [
+    "string",
+    "size",
+    "index"
+   ],
+   "goal": "Join, measure and pick apart std::string values."
+  },
+  {
+   "id": "b14",
+   "level": "beginner",
+   "title": "Project: score tracker",
+   "minutes": 25,
+   "tags": [
+    "project",
+    "debugging",
+    "arrays"
+   ],
+   "goal": "Combine variables, loops, conditions and functions into one small working program."
+  },
+  {
+   "id": "i01",
+   "level": "intermediate",
+   "title": "Arrays: many values, one name",
+   "minutes": 14,
+   "tags": [
+    "arrays",
+    "sizeof"
+   ],
+   "goal": "Store a row of values and walk through them with a loop."
+  },
+  {
+   "id": "i02",
+   "level": "intermediate",
+   "title": "Vectors: the array that grows",
+   "minutes": 14,
+   "tags": [
+    "vector",
+    "range-for"
+   ],
+   "goal": "Use std::vector when you do not know the size in advance."
+  },
+  {
+   "id": "i03",
+   "level": "intermediate",
+   "title": "References: another name for the same box",
+   "minutes": 14,
+   "tags": [
+    "references",
+    "parameters"
+   ],
+   "goal": "Change the caller's variable from inside a function."
+  },
+  {
+   "id": "i04",
+   "level": "intermediate",
+   "title": "Pointers: the address of a value",
+   "minutes": 15,
+   "tags": [
+    "pointers",
+    "nullptr"
+   ],
+   "goal": "Read a pointer, follow it, and know what nullptr means."
+  },
+  {
+   "id": "i05",
+   "level": "intermediate",
+   "title": "Structs: grouping facts together",
+   "minutes": 14,
+   "tags": [
+    "struct",
+    "aggregate"
+   ],
+   "goal": "Bundle related values into one type of your own."
+  },
+  {
+   "id": "i06",
+   "level": "intermediate",
+   "title": "Classes: data plus behaviour",
+   "minutes": 16,
+   "tags": [
+    "class",
+    "constructor",
+    "methods"
+   ],
+   "goal": "Attach functions to your type and guarantee it starts in a valid state."
+  },
+  {
+   "id": "i07",
+   "level": "intermediate",
+   "title": "Encapsulation: protecting the rules",
+   "minutes": 14,
+   "tags": [
+    "encapsulation",
+    "private",
+    "invariants"
+   ],
+   "goal": "Keep an object's rules true by refusing bad changes."
+  },
+  {
+   "id": "i08",
+   "level": "intermediate",
+   "title": "map and set: looking things up",
+   "minutes": 15,
+   "tags": [
+    "map",
+    "set",
+    "lookup"
+   ],
+   "goal": "Store values by key and keep a collection of unique items."
+  },
+  {
+   "id": "i09",
+   "level": "intermediate",
+   "title": "The algorithm library",
+   "minutes": 16,
+   "tags": [
+    "algorithm",
+    "sort",
+    "accumulate"
+   ],
+   "goal": "Replace hand-written loops with tested standard algorithms."
+  },
+  {
+   "id": "i10",
+   "level": "intermediate",
+   "title": "Reading and writing files",
+   "minutes": 16,
+   "tags": [
+    "fstream",
+    "files",
+    "persistence"
+   ],
+   "goal": "Save data between runs and read it back."
+  },
+  {
+   "id": "i11",
+   "level": "intermediate",
+   "title": "Declarations, definitions, and many files",
+   "minutes": 16,
+   "tags": [
+    "header",
+    "prototype",
+    "separate compilation"
+   ],
+   "goal": "Understand what goes in a header and why programs are split up."
+  },
+  {
+   "id": "i12",
+   "level": "intermediate",
+   "title": "Project: robot fleet board",
+   "minutes": 28,
+   "tags": [
+    "project",
+    "struct",
+    "sort",
+    "algorithm"
+   ],
+   "goal": "Combine structs, vectors and algorithms into a small report generator."
+  },
+  {
+   "id": "a01",
+   "level": "advanced",
+   "title": "Scope and object lifetime",
+   "minutes": 14,
+   "tags": [
+    "scope",
+    "lifetime",
+    "stack"
+   ],
+   "goal": "Know exactly when an object is created and when it dies."
+  },
+  {
+   "id": "a02",
+   "level": "advanced",
+   "title": "The heap, new and delete",
+   "minutes": 15,
+   "tags": [
+    "heap",
+    "new",
+    "delete"
+   ],
+   "goal": "Create objects whose lifetime you control, and clean them up correctly."
+  },
+  {
+   "id": "a03",
+   "level": "advanced",
+   "title": "RAII: let the destructor clean up",
+   "minutes": 15,
+   "tags": [
+    "raii",
+    "destructor"
+   ],
+   "goal": "Tie a resource's lifetime to an object so it can never be forgotten."
+  },
+  {
+   "id": "a04",
+   "level": "advanced",
+   "title": "unique_ptr: one clear owner",
+   "minutes": 15,
+   "tags": [
+    "unique_ptr",
+    "ownership",
+    "make_unique"
+   ],
+   "goal": "Use heap objects without writing delete anywhere."
+  },
+  {
+   "id": "a05",
+   "level": "advanced",
+   "title": "shared_ptr and weak_ptr",
+   "minutes": 15,
+   "tags": [
+    "shared_ptr",
+    "weak_ptr",
+    "reference counting"
+   ],
+   "goal": "Share ownership between several places without deciding who deletes."
+  },
+  {
+   "id": "a06",
+   "level": "advanced",
+   "title": "Exceptions: reporting the impossible",
+   "minutes": 16,
+   "tags": [
+    "exceptions",
+    "try",
+    "catch",
+    "throw"
+   ],
+   "goal": "Signal failure up the call stack without returning error codes everywhere."
+  },
+  {
+   "id": "a07",
+   "level": "advanced",
+   "title": "std::optional and honest returns",
+   "minutes": 14,
+   "tags": [
+    "optional",
+    "error handling"
+   ],
+   "goal": "Return 'a value or nothing' without magic numbers."
+  },
+  {
+   "id": "a08",
+   "level": "advanced",
+   "title": "Function templates",
+   "minutes": 16,
+   "tags": [
+    "templates",
+    "generics"
+   ],
+   "goal": "Write one function that works for many types."
+  },
+  {
+   "id": "a09",
+   "level": "advanced",
+   "title": "Class templates",
+   "minutes": 16,
+   "tags": [
+    "templates",
+    "class",
+    "generics"
+   ],
+   "goal": "Build a container type that can hold anything."
+  },
+  {
+   "id": "a10",
+   "level": "advanced",
+   "title": "Lambdas and captures",
+   "minutes": 16,
+   "tags": [
+    "lambda",
+    "capture",
+    "algorithm"
+   ],
+   "goal": "Write small functions where they are used, and control what they can see."
+  },
+  {
+   "id": "a11",
+   "level": "advanced",
+   "title": "Move semantics",
+   "minutes": 17,
+   "tags": [
+    "move",
+    "rvalue",
+    "std::move"
+   ],
+   "goal": "Understand what std::move actually does and when it saves work."
+  },
+  {
+   "id": "a12",
+   "level": "advanced",
+   "title": "Project: inventory with tests",
+   "minutes": 30,
+   "tags": [
+    "project",
+    "assert",
+    "raii",
+    "exceptions"
+   ],
+   "goal": "Build a small class with rules, then prove the rules hold with tests."
+  },
+  {
+   "id": "e01",
+   "level": "expert",
+   "title": "Concepts: templates that explain themselves",
+   "minutes": 18,
+   "tags": [
+    "concepts",
+    "c++20",
+    "templates"
+   ],
+   "goal": "Constrain a template so bad types fail with a readable error."
+  },
+  {
+   "id": "e02",
+   "level": "expert",
+   "title": "Ranges and views",
+   "minutes": 18,
+   "tags": [
+    "ranges",
+    "views",
+    "c++20"
+   ],
+   "goal": "Filter and transform a collection without writing loops or copies."
+  },
+  {
+   "id": "e03",
+   "level": "expert",
+   "title": "Threads and mutexes",
+   "minutes": 18,
+   "tags": [
+    "thread",
+    "mutex",
+    "concurrency"
+   ],
+   "goal": "Run work in parallel without corrupting shared data."
+  },
+  {
+   "id": "e04",
+   "level": "expert",
+   "title": "async and future",
+   "minutes": 17,
+   "tags": [
+    "async",
+    "future",
+    "concurrency"
+   ],
+   "goal": "Start work now and collect the result when you need it."
+  },
+  {
+   "id": "e05",
+   "level": "expert",
+   "title": "Measuring performance",
+   "minutes": 17,
+   "tags": [
+    "chrono",
+    "benchmark",
+    "performance"
+   ],
+   "goal": "Measure how long code takes, and avoid believing a single run."
+  },
+  {
+   "id": "e06",
+   "level": "expert",
+   "title": "Project organisation and build checks",
+   "minutes": 17,
+   "tags": [
+    "cmake",
+    "static_assert",
+    "build"
+   ],
+   "goal": "Make the build fail loudly when the standard or feature is wrong."
+  },
+  {
+   "id": "e07",
+   "level": "expert",
+   "title": "Capstone 1: designing the classes",
+   "minutes": 25,
+   "tags": [
+    "capstone",
+    "design",
+    "optional"
+   ],
+   "goal": "Turn a fuzzy requirement into classes with clear responsibilities."
+  },
+  {
+   "id": "e08",
+   "level": "expert",
+   "title": "Capstone 2: a test harness and the finish",
+   "minutes": 25,
+   "tags": [
+    "capstone",
+    "tests",
+    "assert"
+   ],
+   "goal": "Wire the planner into a tiny test harness so the rules stay true."
+  }
+ ],
+ "counts": {
+  "beginner": 14,
+  "intermediate": 12,
+  "advanced": 12,
+  "expert": 8
+ },
+ "total": 46
+}

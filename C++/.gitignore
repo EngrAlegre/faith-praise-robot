@@ -1,0 +1,5 @@
+# the bundled toolchain is 1.2 GB - never commit it
+tools/mingw64/
+tools/winlibs.zip
+__pycache__/
+*.pyc

@@ -1,0 +1,23 @@
+rules_version = '2';
+
+// Each learner can read and write exactly one document: their own.
+// Nothing here trusts the client to name itself — uid comes from the verified token.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read, update, delete: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null
+                    && request.auth.uid == uid
+                    && request.resource.data.keys().hasOnly(['name', 'progress', 'updatedAt']);
+
+      match /{anything=**} {
+        allow read, write: if false;
+      }
+    }
+
+    // everything else is closed
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

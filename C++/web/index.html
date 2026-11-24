@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>C++ Lab · learn C++20</title>
+<meta name="description" content="A hands-on C++ course: read, predict, run, test.">
+<link rel="stylesheet" href="/styles.css?v=13">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231f6f47'/><text x='16' y='22' font-size='15' text-anchor='middle' fill='white' font-family='sans-serif'>C++</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <button class="icon-btn only-narrow" id="navToggle" aria-label="Open lesson list" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+  </button>
+
+  <a class="brand" href="#/home">
+    <span class="brand-mark" aria-hidden="true">C++</span>
+    <span class="brand-text">
+      <strong>C++ Lab</strong>
+      <small id="brandSub">C++20 · 46 lessons</small>
+    </span>
+  </a>
+
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="search" type="search" placeholder="Search lessons…" autocomplete="off"
+           aria-label="Search lessons" spellcheck="false">
+  </div>
+
+  <div class="account" id="accountArea"></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" id="sidebar" aria-label="Course navigation">
+    <div class="side-head">
+      <span id="sideTitle">Course</span>
+      <span class="pill" id="sideProgress">0%</span>
+    </div>
+    <nav id="lessonNav" class="lesson-nav"></nav>
+    <p class="local-note" id="localNote">
+      Progress is saved in this browser only.
+    </p>
+  </aside>
+
+  <main id="main" class="main" tabindex="-1">
+    <div class="loading" id="boot">Loading the course…</div>
+  </main>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<script src="/vendor/firebase-app-compat.js" defer></script>
+<script src="/vendor/firebase-auth-compat.js" defer></script>
+<script src="/vendor/firebase-firestore-compat.js" defer></script>
+<script src="/app.js?v=13" type="module"></script>
+</body>
+</html>
