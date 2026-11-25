@@ -438,7 +438,8 @@ function landingHTML() {
       </div>
 
       <div class="credit">
-        <div class="credit-avatar" aria-hidden="true">MA</div>
+        <img class="credit-avatar" src="/assets/alegre.jpg" width="56" height="56"
+             alt="Mr. Alegre" loading="lazy">
         <div>
           <strong>Built by Mr. Alegre</strong>
           <span>Developed for C++ beginners — and for two young learners who wanted a robot.</span>
