@@ -400,11 +400,14 @@ function orderedLessons() {
 /* ---------------------------------------------------------------- routing */
 function parseHash() {
   const h = location.hash.replace(/^#\/?/, '');
-  if (!h || h === 'home') return { name: 'home' };
+  if (!h) return { name: 'landing' };
+  if (h === 'home') return { name: 'home' };
   const [kind, id] = h.split('/');
+  if (kind === 'signin') return { name: 'signin' };
+  if (kind === 'signup') return { name: 'signup' };
   if (kind === 'lesson' && id) return { name: 'lesson', id };
   if (kind === 'level' && id) return { name: 'level', id };
-  return { name: 'home' };
+  return { name: 'landing' };
 }
 
 function go(hash) {
@@ -412,22 +415,98 @@ function go(hash) {
   location.hash = hash;
 }
 
+/* ---------------------------------------------------------------- landing */
+function landingHTML() {
+  const total = state.course ? state.course.total : 46;
+  const levels = state.course ? state.course.levels : [];
+  const minutes = state.course
+    ? state.course.lessons.reduce((sum, l) => sum + l.minutes, 0)
+    : 731;
+
+  return `<div class="wrap landing">
+    <section class="landing-hero">
+      <span class="landing-kicker">C++20 · ${total} lessons</span>
+      <h1>Learn C++ by <em>doing</em>,<br>not by copying.</h1>
+      <p class="landing-lead">
+        A hands-on programming course for absolute beginners. Every lesson asks you to predict
+        what the code does, run it on a real compiler, and then write your own version.
+      </p>
+
+      <div class="landing-cta">
+        <a class="btn" href="#/signup">Create a free account</a>
+        <a class="btn ghost" href="#/signin">I already have one</a>
+      </div>
+
+      <div class="credit">
+        <div class="credit-avatar" aria-hidden="true">MA</div>
+        <div>
+          <strong>Built by Mr. Alegre</strong>
+          <span>Developed for C++ beginners — and for two young learners who wanted a robot.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-features">
+      <article>
+        <h3>Real compiler, real output</h3>
+        <p>Code is compiled with <code>g++ -std=c++20</code>. If it does not build, you see the
+           compiler's own message — never a fake “correct”.</p>
+      </article>
+      <article>
+        <h3>Predict before you run</h3>
+        <p>Every lesson starts with a question you answer before the explanation appears. Guessing
+           wrong is the point — that is when it sticks.</p>
+      </article>
+      <article>
+        <h3>Short lessons</h3>
+        <p>${total} lessons of about 10–25 minutes, ${Math.round(minutes / 60)} hours in total,
+           each ending in a small program you write yourself.</p>
+      </article>
+      <article>
+        <h3>Progress that follows you</h3>
+        <p>Sign in and your finished lessons, quiz scores and saved code follow you to any
+           device — phone, tablet or laptop.</p>
+      </article>
+    </section>
+
+    <section class="landing-levels">
+      <h2>What you will learn</h2>
+      <div class="levels">
+        ${levels.map((lv) => `
+          <div class="level-card landing-level">
+            <div class="lc-top">
+              <h3>${esc(lv.name)}</h3>
+              <span class="tag time">${lv.lessons.length} lessons</span>
+            </div>
+            <p>${esc(lv.blurb)}</p>
+          </div>`).join('')}
+      </div>
+    </section>
+
+    <footer class="landing-foot">
+      <p><strong>C++ Lab</strong> — built by Mr. Alegre for C++ beginners.</p>
+      <p class="muted">Free, no ads. An account is only used to save your progress.</p>
+    </footer>
+  </div>`;
+}
+
 /* ------------------------------------------------------------------- gate */
 function isGated() {
   return !state.user && !state.guestSession;
 }
 
-function gateHTML() {
+function gateHTML(mode = 'signin') {
   const total = state.course ? state.course.total : 46;
   return `<div class="gate">
-    <form class="gate-card" data-gate novalidate>
+    <form class="gate-card" data-gate data-start="${mode}" novalidate>
+      <a class="gate-back" href="#/">← Back</a>
       <div class="gate-mark" aria-hidden="true">C++</div>
       <h1>Sign in to C++ Lab</h1>
       <p class="gate-sub">${total} short lessons in C++20. Your progress is saved to your account.</p>
 
       <div class="auth-tabs" role="tablist">
-        <button type="button" role="tab" data-mode="signin" aria-pressed="true">Sign in</button>
-        <button type="button" role="tab" data-mode="signup" aria-pressed="false">Create account</button>
+        <button type="button" role="tab" data-mode="signin" aria-pressed="${mode === 'signin'}">Sign in</button>
+        <button type="button" role="tab" data-mode="signup" aria-pressed="${mode === 'signup'}">Create account</button>
       </div>
 
       <label class="field" data-name-field hidden>
@@ -451,7 +530,7 @@ function gateHTML() {
   </div>`;
 }
 
-function bindGate() {
+function bindGate(startMode = 'signin') {
   const form = $('[data-gate]');
   if (!form) return;
 
@@ -513,22 +592,35 @@ function bindGate() {
     }
   });
 
-  setMode('signin');
+  setMode(startMode);
 }
 
 /* ------------------------------------------------------------------ render */
 function render() {
   if (!state.course) return;
-  state.route = parseHash();
+  const route = parseHash();
+  state.route = route;
 
-  const gated = isGated();
-  document.body.classList.toggle('gated', gated);
+  const publicView = !state.user && !state.guestSession;
+  document.body.classList.toggle('gated', publicView);
   const main = $('#main');
 
-  if (gated) {
+  // someone signed in never needs the landing page or the sign-in screen
+  if (state.user && ['landing', 'signin', 'signup'].includes(route.name)) {
+    if (location.hash !== '#/home') location.hash = '#/home';
+    return;
+  }
+
+  if (publicView) {
     $('#lessonNav').innerHTML = '';
-    main.innerHTML = gateHTML();
-    bindGate();
+    if (route.name === 'landing') {
+      main.innerHTML = landingHTML();
+      document.title = 'C++ Lab · learn C++20 from scratch';
+      return;
+    }
+    const mode = route.name === 'signup' ? 'signup' : 'signin';
+    main.innerHTML = gateHTML(mode);
+    bindGate(mode);
     document.title = 'C++ Lab · sign in';
     return;
   }
